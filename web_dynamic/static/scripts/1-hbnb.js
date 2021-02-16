@@ -4,15 +4,22 @@ let i;
 $(document).ready(function () {
   $('input[type=checkbox]').click(function () {
     if (this.checked) {
-      amenities.push({this.data-id: this.data-name});
+      amenities[this.getAttribute('data-id')] = this.getAttribute('data-name');
     } else {
-      amenities.delete(this.data-id);
+      delete amenities[this.getAttribute('data-id')];
     }
     //update the h4
     const out = $('div.amenities h4');
-    out.html = '';
+    let text = '';
+    let sep = '';
     for (const [key, value] of Object.entries(amenities)) {
-      out.html += '&nbsp;' + value;
+      text += sep + value;
+      sep = ', ';
+    }
+    if (text === '') {
+      out.html('&nbsp;');
+    } else {
+      out.text(text);
     }
   });
 });
