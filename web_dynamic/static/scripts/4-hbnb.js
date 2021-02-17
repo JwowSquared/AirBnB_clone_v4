@@ -42,7 +42,6 @@ $(document).ready(function () {
   });
 
   $('button').click(function () {
-    console.log(JSON.stringify(amenities));
     $.ajax({
       url: 'http://127.0.0.1:5001/api/v1/places_search/',
       type: 'POST',
@@ -58,7 +57,6 @@ $(document).ready(function () {
 
 function populate (data) {
   let i;
-  console.log(data);
   const out = $('section.places');
   out.empty();
   for (i = 0; i < data.length; i++) {
