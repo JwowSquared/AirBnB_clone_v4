@@ -1,5 +1,4 @@
-let amenities = {}
-let i;
+const amenities = {};
 
 $(document).ready(function () {
   $('input[type=checkbox]').click(function () {
@@ -8,12 +7,11 @@ $(document).ready(function () {
     } else {
       delete amenities[this.getAttribute('data-id')];
     }
-    //update the h4
     const out = $('div.amenities h4');
     let text = '';
     let sep = '';
-    for (const [key, value] of Object.entries(amenities)) {
-      text += sep + value;
+    for (const key in amenities) {
+      text += sep + amenities[key];
       sep = ', ';
     }
     if (text === '') {
