@@ -65,11 +65,11 @@ function populate (data) {
     let inner = `<article><div class='title_box'><h2>${data[i].name}</h2>`;
     inner += `<div class='price_by_night'>$${data[i].price_by_night}</div></div>`;
     inner += `<div class='information'><div class='max_guest'>${data[i].max_guest} Guest`;
-    if (data[i].max_guest > 1) inner += 's';
+    if (data[i].max_guest !== 1) inner += 's';
     inner += `</div><div class='number_rooms'>${data[i].number_rooms} Bedroom`;
-    if (data[i].number_rooms > 1) inner += 's';
+    if (data[i].number_rooms !== 1) inner += 's';
     inner += `</div><div class='number_bathrooms'>${data[i].number_bathrooms} Bathroom`;
-    if (data[i].number_bathrooms > 1) inner += 's';
+    if (data[i].number_bathrooms !== 1) inner += 's';
     inner += `</div></div><div class='description'>${data[i].description}</div></article>`;
     out.append(inner);
   }
