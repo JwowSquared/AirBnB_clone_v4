@@ -46,7 +46,7 @@ $(document).ready(function () {
     $.ajax({
       url: 'http://127.0.0.1:5001/api/v1/places_search/',
       type: 'POST',
-      data: JSON.stringify({amenities: amenities}),
+      data: JSON.stringify({ amenities: amenities }),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
       success: function (data) {
