@@ -41,16 +41,16 @@ $(document).ready(function () {
     }
   });
 
-  $('button').click( function () {
-  console.log(JSON.stringify(amenities));
+  $('button').click(function () {
+    console.log(JSON.stringify(amenities));
     $.ajax({
       url: 'http://127.0.0.1:5001/api/v1/places_search/',
       type: 'POST',
-      data: JSON.stringify({amenities: amenities}),
+      data: JSON.stringify({ amenities: amenities }),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
       success: function (data) {
-         populate(data);
+        populate(data);
       }
     });
   });
@@ -70,7 +70,7 @@ function populate (data) {
     if (data[i].number_rooms > 1) inner += 's';
     inner += `</div><div class='number_bathrooms'>${data[i].number_bathrooms} Bathroom`;
     if (data[i].number_bathrooms > 1) inner += 's';
-    inner += `</div></div><div class='description'>${data[i].description}</div></article>`
+    inner += `</div></div><div class='description'>${data[i].description}</div></article>`;
     out.append(inner);
   }
 }
